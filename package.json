@@ -10,7 +10,9 @@
   "scripts": {
     "test": "n/a",
     "migrate": "sqlite3 db/database.db < db/schema.sql",
-    "seed": "sqlite3 db/database.db < db/seeds.sql"
+    "seed": "sqlite3 db/database.db < db/seeds.sql",
+    "db": "sqlite3 db/database.db",
+    "start": ""
   },
   "repository": {
     "type": "git",

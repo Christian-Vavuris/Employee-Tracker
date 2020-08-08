@@ -1,5 +1,4 @@
 -- Why wont these tables generate when I run "npm run migrate"
-
 DROP TABLE IF EXISTS departments;
 DROP TABLE IF EXISTS roles;
 DROP TABLE IF EXISTS employees;
