@@ -4,7 +4,8 @@
   "description": "A tool for tracking employees",
   "main": "script.js",
   "dependencies": {
-    "inquirer": "^7.3.3"
+    "inquirer": "^7.3.3",
+    "sqlite3": "^5.0.0"
   },
   "devDependencies": {},
   "scripts": {
