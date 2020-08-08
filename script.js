@@ -1,11 +1,12 @@
 const inquirer = require('inquirer')
 const sqlite3 = require('sqlite3')
+const cTable = require('console.table');
 
 let db = new sqlite3.Database('./db/database.db', (err) => {
     if (err) {
       return console.error(err.message);
     }
-    console.log('Connected to the in-memory SQlite database.');
+    // console.log('Connected to the in-memory SQlite database.');
   });
 
 // need to add .headers on and .mode column here
@@ -25,7 +26,7 @@ const questions = function () {
         type: 'list',
         name:'Question',
         message: 'What would you like to do?',
-        choices: ["View all departments", "View all roles", "View all employees", "Add a department", "Add a role", "Add an employee",]
+        choices: ["View all departments", "View all roles", "View all employees", "Add a department", "Add a role", "Add an employee", "Update an employee Role"]
     },
   ])
   .then(answers => {
@@ -43,9 +44,7 @@ const followUpQuestions =function(toDo) {
         if (err) {
             throw err;
           }
-          rows.forEach((row) => {
-            console.log(row);
-          });
+          console.table(rows)
         });
         db.close;
     }
@@ -57,9 +56,7 @@ const followUpQuestions =function(toDo) {
          if (err) {
              throw err;
            }
-           rows.forEach((row) => {
-             console.log(row);
-           });
+           console.table(rows)
          });
          db.close;
     }
@@ -71,9 +68,7 @@ const followUpQuestions =function(toDo) {
          if (err) {
              throw err;
            }
-           rows.forEach((row) => {
-             console.log(row);
-           });
+           console.table(rows)
          });
          db.close;
     }
