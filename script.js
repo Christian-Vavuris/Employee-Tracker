@@ -80,7 +80,7 @@ const followUpQuestions =function(toDo) {
     if (toDo === "Add a department") {
         // console.log("Add a department")
 
-        // take get responses from inquirer
+        //get responses from inquirer
 
         inquirer.prompt([
             {
@@ -105,11 +105,86 @@ const followUpQuestions =function(toDo) {
          }
     if (toDo === "Add a role") {
         // console.log("Add a role")
+
+        // take get responses from inquirer
+
+        inquirer.prompt([
+            {
+                type: 'input',
+                name:'role_title',
+                message: 'What is the name of the role you would like to add?',
+            },
+            {
+                type: 'input',
+                name:'role_salary',
+                message: 'What amount, in dollars, will this role be paid?',
+            },
+            {
+                type: 'input',
+                name:'role_department_id',
+                message: 'What department will this role be in?',
+            },
+          ])
+          .then(answers => {
+              let roleTitle = answers.role_title;
+              let roleSalary = answers.role_salary;
+              let roleDepartment = answers.role_department_id;
+          
         // Write script that adds a role
+        let query5 = `INSERT INTO roles (title, salary, department_id) VALUES (?, ?, ?);`;
+        db.run(query5, [roleTitle, roleSalary, roleDepartment], (err,rows) => {
+         if (err) {
+             throw err;
+           }
+           console.log(`You inserted a new role called ${roleTitle}`)
+           });
+         });
+         db.close;
     }
     if (toDo === "Add an employee") {
         // console.log("Add an employee")
-        // Write script that adds an employee
+
+        // take get responses from inquirer
+
+        inquirer.prompt([
+            {
+                type: 'input',
+                name:'employee_first_name',
+                message: 'What is the first name of the new employee?',
+            },
+            {
+                type: 'input',
+                name:'employee_last_name',
+                message: 'What is the lasat name of the new employee?',
+            },
+            {
+                type: 'input',
+                name:'role_id',
+                message: 'What role will this employee have',
+            },
+            {
+                type: 'input',
+                name:'manager_id',
+                message: 'What is the role ID of their new manager?',
+            },
+            
+          ])
+          .then(answers => {
+              let firstName = answers.employee_first_name;
+              let lastName = answers.employee_last_name;
+              let roleId = answers.role_id;
+              let managerId = answers.manager_id
+          
+        // Write script that adds a department
+        let query5 = `INSERT INTO employees (first_name, last_name, role_id, manager_id) VALUES (?, ?, ?, ?);`;
+        db.run(query5, [firstName, lastName, roleId, managerId], (err,rows) => {
+         if (err) {
+             throw err;
+           }
+           console.log(`${firstName} ${lastName} has been added to the employeee database.`)
+           });
+         });
+         db.close;
     }
 };
 
