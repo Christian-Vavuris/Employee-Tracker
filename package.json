@@ -1,0 +1,28 @@
+{
+  "name": "employee-tracker",
+  "version": "1.0.0",
+  "description": "A tool for tracking employees",
+  "main": "script.js",
+  "dependencies": {
+    "inquirer": "^7.3.3"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "n/a",
+    "migrate": "sqlite3 db/database.db < db/schema.sql",
+    "seed": "sqlite3 db/database.db < db/seeds.sql"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Christian-Vavuris/Employee-Tracker.git"
+  },
+  "keywords": [
+    "n/a"
+  ],
+  "author": "Chris Vavuris",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Christian-Vavuris/Employee-Tracker/issues"
+  },
+  "homepage": "https://github.com/Christian-Vavuris/Employee-Tracker#readme"
+}
